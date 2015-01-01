@@ -9,7 +9,7 @@ Use the queries above on your own risk. Take **backups** first.
 Some scripts are Mysql or Postgresql specific, they're named *.my.sql and *.pg.sql, respectively. Pay attention.
 
 #### NOTE
-The queries were tested against Zabbix 1.8 and 2.0. Apply with caution to other versions. Consider reporting the results, whether succesful or not.
+The queries were tested against Zabbix 1.8 and 2.0. Apply with caution to other versions. Consider reporting the results, whether successful or not.
 
 
 #### Check how many orphaned rows do you have
