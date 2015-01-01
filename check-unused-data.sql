@@ -6,20 +6,20 @@ CREATE PROCEDURE __count_unused_items(
 BEGIN
 
     SET @qry = concat('
-    	drop temporary table if exists __uitems_', tableName ,'
+    	DROP TEMPORARY TABLE IF EXISTS __uitems_', tableName ,'
     ');
     PREPARE `qry` FROM @qry; EXECUTE `qry`; DEALLOCATE PREPARE `qry`;
 
     SET @qry = concat('
-    	create temporary table __uitems_', tableName ,' (
-    	    itemid bigint UNSIGNED primary key
-    	) engine=memory
-                select distinct `itemid` from ', tableName ,'
+    	CREATE TEMPORARY TABLE __uitems_', tableName ,' (
+    	    itemid BIGINT UNSIGNED PRIMARY KEY
+    	) ENGINE=MEMORY
+                SELECT DISTINCT `itemid` FROM ', tableName ,'
     ');
     PREPARE `qry` FROM @qry; EXECUTE `qry`; DEALLOCATE PREPARE `qry`;
 
     SET @qry = concat('
-        delete from __uitems_', tableName ,' where itemid in (select itemid from __good_items);
+        DELETE FROM __uitems_', tableName ,' WHERE itemid IN (SELECT itemid FROM __good_items);
     ');
     PREPARE `qry` FROM @qry; EXECUTE `qry`; DEALLOCATE PREPARE `qry`;
 
