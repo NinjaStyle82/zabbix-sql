@@ -40,7 +40,7 @@ CREATE TEMPORARY TABLE __good_items ENGINE=MEMORY
 ALTER TABLE __good_items ADD PRIMARY KEY (itemid);
 
 CALL __count_unused_items('history');
-CALL __count_unused_items('__history_uitems');
+CALL __count_unused_items('history_uitems');
 CALL __count_unused_items('history_str');
 CALL __count_unused_items('history_text');
 CALL __count_unused_items('history_log');
