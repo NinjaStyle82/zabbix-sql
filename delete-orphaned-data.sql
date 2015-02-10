@@ -27,8 +27,9 @@ DELETE FROM graphs_items WHERE NOT graphid IN (SELECT graphid FROM graphs);
 DELETE FROM graphs_items WHERE NOT itemid IN (SELECT itemid FROM items);
 
 -- Delete orphaed host_profiles 
-DELETE FROM hosts_profiles WHERE NOT hostid IN (SELECT hostid FROM hosts);
-DELETE FROM hosts_profiles_ext WHERE NOT hostid IN (SELECT hostid FROM hosts);
+-- DELETE FROM hosts_profiles WHERE NOT hostid IN (SELECT hostid FROM hosts);
+-- DELETE FROM hosts_profiles_ext WHERE NOT hostid IN (SELECT hostid FROM hosts);
+DELETE FROM host_inventory WHERE NOT hostid IN (SELECT hostid FROM hosts);
 
 -- Delete orphaned host macro's 
 DELETE FROM hostmacro WHERE NOT hostid IN (SELECT hostid FROM hosts);

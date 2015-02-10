@@ -27,8 +27,9 @@ SELECT COUNT(*) AS GRAPHS_MISSING_GID FROM graphs_items WHERE NOT graphid IN (SE
 SELECT COUNT(*) AS GRAPHS_MISSING_IID FROM graphs_items WHERE NOT itemid IN (SELECT itemid FROM items);
 
 -- Count the amount of rows that would be deleted for orphaned host_profiles
-SELECT COUNT(*) AS HOSTPROFS_MISSING_HID FROM hosts_profiles WHERE NOT hostid IN (SELECT hostid FROM hosts);
-SELECT COUNT(*) AS HOSTPROFEXT_MISSING_HID FROM hosts_profiles_ext WHERE NOT hostid IN (SELECT hostid FROM hosts);
+-- SELECT COUNT(*) AS HOSTPROFS_MISSING_HID FROM hosts_profiles WHERE NOT hostid IN (SELECT hostid FROM hosts);
+-- SELECT COUNT(*) AS HOSTPROFEXT_MISSING_HID FROM hosts_profiles_ext WHERE NOT hostid IN (SELECT hostid FROM hosts);
+SELECT COUNT(*) AS HOSTINVENTORY_MISSING_HID FROM host_inventory WHERE NOT hostid IN (SELECT hostid FROM hosts);
 
 -- Count the amount of rows that would be deleted for orphaned host macro's
 SELECT COUNT(*) AS HOSTMACRO_MISSING_HID FROM hostmacro WHERE NOT hostid IN (SELECT hostid FROM hosts);
